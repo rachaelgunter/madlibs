@@ -30,8 +30,12 @@ def say_hello():
 
 @app.route('/game')
 def make_madlib():
+    name = request.args.get("name")
+    noun = request.args.get("noun")
+    color = request.args.get("color")
+    adjective = request.args.get("adjective")
 
-    return render_template("play_game.html")
+    return render_template("sentence.html",name=name,noun=noun,color=color,adjective =adjective)
 
 @app.route('/play_game')
 def show_madlib_form():
@@ -48,20 +52,30 @@ def show_madlib_form():
         
        
 
-@app.route('/greet')
+@app.route('/compliment')
 def greet_person():
     """Greet user with compliment."""
 
-    player = request.args.get("person")
+    player = request.args.get("player")
+    play_game = request.args.get("play_game")
 
     compliment = choice(AWESOMENESS)
 
     return render_template("compliment.html",
-                           person=player,
+                           player=player,
                            compliment=compliment)
 
+@app.route("/sentence")
+def show_madlib():
+    """uses madlib choices to make a new sentence"""
 
+    player = request.args.get("player")
+    noun = request.args.get("noun")
+    color = request.args.get("color")
+    adjective = request.args.get("adjective")
 
+    return render_template("sentence.html", player=player,
+                            noun=noun, color=color, adjective =adjective)
 
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also

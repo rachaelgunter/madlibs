@@ -2,16 +2,28 @@
 <html>
 
   <head>
-    <title>A Compliment</title>
+    <title>Madlib Game!</title>
   </head>
 
   <body>
-
-    <p>Hi {{ person }}! I think you're {{ compliment }}!</p> -->
     <form action="/game">
-    
+    <p><label>Person:</label><input type="text" name="name"></p>
+    <p><label>Noun:</label><input type="text" name="noun"></p>
+    <p><label>Color:</label>
+      <select name="color">
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="orange">Orange</option>
+      </select>
+    <p><label>Adjective:</label>
+      <input type="radio" name="adjective" value="whimsical">
+      <label>Whimsical</label>
+      <input type="radio" name="adjective" value="ludicrous">
+      <label>Ludicrous</label>
+      <input type="radio" name="adjective" value="zippy">
+      <label>Zippy</label>
+      <button type= "submit">Make a Madlib</button>
+    </p>
     </form>
-
   </body>
-
-</html>
+ </html>
